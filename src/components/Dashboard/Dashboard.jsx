@@ -3,10 +3,13 @@ import { Entry } from "./Entry";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AddCard from "./AddCard";
+import EditCard from "./EditCard";
 
 export const Dashboard = () => {
 	const [flashcards, setFlashcards] = useState([]);
 	const [showAddCard, setShowAddCard] = useState(false);
+	const [showEditCard , setShowEditCard] = useState(false);
+
 	const FetchData = async () => {
 		const response = await axios.get("http://localhost:3000/flashcards", {
 			headers: { "Content-Type": "application/json" },
@@ -21,14 +24,16 @@ export const Dashboard = () => {
 
 	return (
 		<div>
-			{showAddCard ? (	
-				<AddCard setShowAddCard ={setShowAddCard}/>
+			{showAddCard ? (
+				<AddCard setShowAddCard={setShowAddCard} />
+			) : showEditCard ? (
+				<EditCard setShowEditCard={setShowEditCard} />
 			) : (
 				<div>
 					<Navbar />
 					<h1 className=" mt-20 ml-20 text-3xl"> My Flashcards</h1>
 					{flashcards.map((card, index) => (
-						<Entry key={index} card={card} />
+						<Entry key={index} card={card} setShowEditCard={setShowEditCard} />
 					))}
 					<div className=" ml-52 mt-5 py-2 w-4/12 text-2xl text-white pl-2 flex items-center justify-between">
 						<button

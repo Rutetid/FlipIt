@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 
-const EditCard = ({ setShowAddCard }) => {
+const EditCard = ({ setShowEditCard }) => {
 	const [question, setQuestion] = useState("");
 	const [answer, setAnswer] = useState("");
 
@@ -11,11 +11,11 @@ const EditCard = ({ setShowAddCard }) => {
 			<button
 				type="button"
 				className="flex absolute right-10 top-5 font-bold bg-red-500 px-3 py-1 rounded-full"
-				onClick={() => setShowAddCard(false)}
+				onClick={() => setShowEditCard(false)}
 			>
 				X
 			</button>
-			<h1 className="pl-20 text-3xl pt-10">Add a FlashCard</h1>
+			<h1 className="pl-20 text-3xl pt-10">Update FlashCard</h1>
 			<form onSubmit={handleSubmit}>
 				<div className="flex flex-col pt-10 pl-20 ">
 					<input
@@ -34,7 +34,7 @@ const EditCard = ({ setShowAddCard }) => {
 						type="submit"
 						className="mt-5 p-2 w-1/4 bg-slate-400 text-white rounded-lg"
 					>
-						Add FlashCard
+						Update FlashCard
 					</button>
 				</div>
 			</form>
