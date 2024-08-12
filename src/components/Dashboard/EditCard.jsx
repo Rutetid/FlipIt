@@ -2,20 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 
-const AddCard = ({ setShowAddCard }) => {
+const EditCard = ({ setShowAddCard }) => {
 	const [question, setQuestion] = useState("");
 	const [answer, setAnswer] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await axios.post("http://localhost:3000/flashcards", {
-            question: question,
-            answer: answer,
-        });
-        console.log(response);
-        setShowAddCard(false);
-        alert("FlashCard added successfully");
-    }
 	return (
 		<div className="flex absolute top-24 bottom-24 left-24 right-24  bg-slate-200 rounded-lg flex-col ">
 			<button
@@ -32,13 +22,13 @@ const AddCard = ({ setShowAddCard }) => {
 						type="text"
 						className="mt-5 p-2 w-1/4 rounded-lg"
 						placeholder="Enter the question"
-                        onChange={(e) => setQuestion(e.target.value)}
+						onChange={(e) => setQuestion(e.target.value)}
 					/>
 					<input
 						type="text"
 						className="mt-5 p-2 w-1/4 rounded-lg"
 						placeholder="Enter the answer"
-                        onChange={(e) => setAnswer(e.target.value)}
+						onChange={(e) => setAnswer(e.target.value)}
 					/>
 					<button
 						type="submit"
@@ -52,4 +42,4 @@ const AddCard = ({ setShowAddCard }) => {
 	);
 };
 
-export default AddCard;
+export default EditCard;

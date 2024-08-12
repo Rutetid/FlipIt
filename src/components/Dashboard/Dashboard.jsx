@@ -21,7 +21,7 @@ export const Dashboard = () => {
 
 	return (
 		<div>
-			{showAddCard ? (
+			{showAddCard ? (	
 				<AddCard setShowAddCard ={setShowAddCard}/>
 			) : (
 				<div>

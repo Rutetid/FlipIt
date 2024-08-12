@@ -6,6 +6,8 @@ import axios from "axios";
 const Homepage = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [flashcards, setFlashcards] = useState([]);
+
+
 	const FetchData = async () => {
 		const response = await axios.get("http://localhost:3000/flashcards", {
 			headers: { "Content-Type": "application/json" },
@@ -13,6 +15,7 @@ const Homepage = () => {
 		setFlashcards(response.data);
 	};
 	console.log(flashcards);
+
 	useEffect(() => {
 		FetchData();
 	}, []);
