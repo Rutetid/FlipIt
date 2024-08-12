@@ -1,7 +1,7 @@
 export const Entry = ({card}) => {
 	return (
 		<div>
-			<div className="bg-gray-600 ml-20 mt-5 py-2 w-[500px] text-2xl text-white pl-2 flex items-center justify-between">
+			<div className="bg-gray-600 ml-20 mt-5 py-2 w-4/12 text-2xl text-white pl-2 flex items-center justify-between">
 				<div className="flex items-center">
 					<div className="text-xl p-1 pr-2 rounded-sm"> {card.id}. </div>
 					<div> {card.question} </div>
