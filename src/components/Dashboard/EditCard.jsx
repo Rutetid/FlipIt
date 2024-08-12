@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const EditCard = ({ setShowEditCard }) => {
+const EditCard = ({ setShowEditCard}) => {
 	const [question, setQuestion] = useState("");
 	const [answer, setAnswer] = useState("");
 	const [flashcards, setFlashcards] = useState([]);
@@ -55,7 +55,7 @@ const EditCard = ({ setShowEditCard }) => {
 				{flashcards.map((card, index) => {
 					return (
 						<option key={index} value={card.id}>
-							{card.id}. {card.question}{" "}
+							{index + 1}. {card.question}{" "}
 						</option>
 					);
 				})}
@@ -67,12 +67,14 @@ const EditCard = ({ setShowEditCard }) => {
 						className="mt-5 p-2 w-1/4 rounded-lg"
 						placeholder="Enter the question"
 						onChange={(e) => setQuestion(e.target.value)}
+                        required
 					/>
 					<input
 						type="text"
 						className="mt-5 p-2 w-1/4 rounded-lg"
 						placeholder="Enter the answer"
 						onChange={(e) => setAnswer(e.target.value)}
+                        required
 					/>
 					<button
 						type="submit"

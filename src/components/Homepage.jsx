@@ -18,7 +18,7 @@ const Homepage = () => {
 
 	useEffect(() => {
 		FetchData();
-	}, []);
+	});
 
 	const next = () => {
 		setCurrentIndex((prevIndex) =>

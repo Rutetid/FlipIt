@@ -56,7 +56,7 @@ const FlipCard = ({card}) => {
 				<div className="flip-card-inner">
 					<div className="flip-card-front">
 						<h1 className="flex pt-10 px-5 justify-center text-4xl ">
-							{card.id}. {card.question}
+							 {card.question}
 						</h1>
 						<button
 							type="button"

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const Entry = ({ card, setShowEditCard }) => {
+export const Entry = ({ card, setShowEditCard,serial }) => {
 	const handleDelete = async () => {
 		const response = await axios.delete(
 			`http://localhost:3000/flashcards/${card.id}`,
@@ -15,7 +15,7 @@ export const Entry = ({ card, setShowEditCard }) => {
 		<div>
 			<div className="bg-gray-600 ml-20 mt-5 py-2 w-4/12 text-2xl text-white pl-2 flex items-center justify-between">
 				<div className="flex items-center">
-					<div className="text-xl p-1 pr-2 rounded-sm"> {card.id}. </div>
+					<div className="text-xl p-1 pr-2 rounded-sm"> {serial}. </div>
 					<div> {card.question} </div>
 				</div>
 				<div className="flex items-center pr-2">

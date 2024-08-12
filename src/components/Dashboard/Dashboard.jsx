@@ -33,7 +33,7 @@ export const Dashboard = () => {
 					<Navbar />
 					<h1 className=" mt-20 ml-20 text-3xl"> My Flashcards</h1>
 					{flashcards.map((card, index) => (
-						<Entry key={index} card={card} setShowEditCard={setShowEditCard} />
+						<Entry key={index} card={card} serial ={index + 1} setShowEditCard={setShowEditCard} />
 					))}
 					<div className=" ml-52 mt-5 py-2 w-4/12 text-2xl text-white pl-2 flex items-center justify-between">
 						<button
