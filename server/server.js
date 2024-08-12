@@ -39,7 +39,9 @@ app.get("/flashcards", (req, res) => {
 	});
 });
 
-app.delete("/flashcards/:id", (req, res) => {});
+app.delete("/flashcards/:id", (req, res) => {
+		
+});
 
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
