@@ -68,19 +68,26 @@ app.delete("/flashcards/:id", (req, res) => {
 	})
 });
 
-app.post("/flashcards/:id" , (req , res) => {
-	const sql = "UPDATE flashcards SET question = ? , answer = ? WHERE id = ?";
-	db.query(sql  , [req.body.question , req.body.answer , req.params.id] , (err , result) => {
-		if (err) {
-			res.status(500).json({error: err.message});
-			return;
-		}
-		if (result.affectedRows === 0) {
-			res.status(404).json({message: "Flashcard not found"});
-			return;
-		}
-	})
-})
+app.put("/flashcards/:id", (req, res) => {
+    console.log("Received PUT request to update flashcard with ID:", req.params.id);
+    console.log("Request body:", req.body);
+
+    const sql = "UPDATE flashcards SET question = ?, answer = ? WHERE id = ?";
+    db.query(sql, [req.body.question, req.body.answer, req.params.id], (err, result) => {
+        if (err) {
+            console.error("Database error:", err);
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        if (result.affectedRows === 0) {
+            console.log("Flashcard not found");
+            res.status(404).json({ message: "Flashcard not found" });
+            return;
+        }
+        console.log("Flashcard updated successfully");
+        res.status(200).json({ message: "Flashcard updated successfully" });
+    });
+});
 
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
